@@ -2,9 +2,9 @@
 <html lang="en">
 <head itemscope itemtype="http://schema.org/WebSite">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title itemprop="name">Preview bootstrap html snippet. meet creative team with board directors</title>
+    <title itemprop="name">Preview bootstrap html snippet. Contacts page</title>
     <meta name="description" itemprop="description"
-          content="Preview bootstrap html snippet. meet creative team with board directors. Copy and paste the html, css and js code for save time, build your app faster and responsive">
+          content="Preview bootstrap html snippet. Contacts page. Copy and paste the html, css and js code for save time, build your app faster and responsive">
     <meta name="keywords"
           content="html, css, javascript, themes, templates, code snippets, ui examples, react js, react-native, plagraounds, cards, front-end, profile, invoice, back-end, web-designers, web-developers">
     <link itemprop="sameAs" href="https://www.facebook.com/bootdey">
@@ -14,318 +14,241 @@
     <link rel="shortcut icon" type="image/x-icon" href="/img/bootdey_favicon.ico">
     <link rel="apple-touch-icon" sizes="135x140" href="/img/bootdey_135x140.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/img/bootdey_76x76.png">
-    <link rel="canonical" href="https://bootdey.com/snippets/view/meet-creative-team-with-board-directors"
-          itemprop="url">
+    <link rel="canonical" href="https://bootdey.com/snippets/view/Contacts-page" itemprop="url">
     <meta property="twitter:account_id" content="2433978487"/>
     <meta name="twitter:card" content="summary">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@bootdey">
     <meta name="twitter:creator" content="@bootdey">
-    <meta name="twitter:title" content="Preview bootstrap html snippet. meet creative team with board directors">
+    <meta name="twitter:title" content="Preview bootstrap html snippet. Contacts page">
     <meta name="twitter:description"
-          content="Preview bootstrap html snippet. meet creative team with board directors. Copy and paste the html, css and js code for save time, build your app faster and responsive">
-    <meta name="twitter:image" content="https://bootdey.com/files/SnippetsImages/bootstrap-snippets-1383.png">
-    <meta name="twitter:url" content="https://bootdey.com/snippets/preview/meet-creative-team-with-board-directors">
-    <meta property="og:title" content="Preview bootstrap html snippet. meet creative team with board directors">
-    <meta property="og:url" content="https://bootdey.com/snippets/preview/meet-creative-team-with-board-directors">
-    <meta property="og:image" content="https://bootdey.com/files/SnippetsImages/bootstrap-snippets-1383.png">
+          content="Preview bootstrap html snippet. Contacts page. Copy and paste the html, css and js code for save time, build your app faster and responsive">
+    <meta name="twitter:image" content="https://bootdey.com/files/SnippetsImages/bootstrap-snippets-1224.png">
+    <meta name="twitter:url" content="https://bootdey.com/snippets/preview/Contacts-page">
+    <meta property="og:title" content="Preview bootstrap html snippet. Contacts page">
+    <meta property="og:url" content="https://bootdey.com/snippets/preview/Contacts-page">
+    <meta property="og:image" content="https://bootdey.com/files/SnippetsImages/bootstrap-snippets-1224.png">
     <meta property="og:description"
-          content="Preview bootstrap html snippet. meet creative team with board directors. Copy and paste the html, css and js code for save time, build your app faster and responsive">
+          content="Preview bootstrap html snippet. Contacts page. Copy and paste the html, css and js code for save time, build your app faster and responsive">
     <meta name="msvalidate.01" content="23285BE3183727A550D31CAE95A790AB"/>
     <script src="/cache-js/cache-1635427806-97135bbb13d92c11d6b2a92f6a36685a.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="snippetContent">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-    <section id="team" class="team_area section-padding">
-        <div class="container"><h2 class="title_spectial">Meet creative team</h2>
-            <div class="row text-center">
-                {% for perso in person %}
-                    <div class="col-lg-2 col-sm-4 col-xs-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"
-                         data-wow-offset="0"
-                         style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
-                        <div class="our-team">
-                            <div class="single-team"><img src={{ perso.photo.url }}
-                                                                  class="img-fluid" alt>
-                                <h3>{{ perso.first_name }} {{ perso.last_name }}</h3>
-                                <p>{{ perso.proffession }}</p></div>
-                            <ul class="social">
-                                <li><a href="#" class="fa fa-facebook facebook"></a></li>
-                                <li><a href="#" class="fa fa-twitter twitter"></a></li>
-                                <li><a href="#" class="fa fa-google google"></a></li>
-                            </ul>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+          integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous"/>
+    <div class="container">
+        <div class="content contact-list">
+            <div class="card card-default">
+                <div class="card-header align-items-center px-3 px-md-5"><h2>Contacts</h2>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-contact">
+                        Add Contact
+                    </button>
+                </div>
+                <div class="card-body px-3 px-md-5">
+                    <div class="row">
+                        {% for contact in contacts %}
+                            <div class="col-lg-6 col-xl-4 col-md-6 col-sm-12">
+                                <div class="card card-default p-4"><a href="javascript:0" class="media text-secondary"
+                                                                      data-toggle="modal" data-target="#modal-contact">
+                                    <img
+                                            src="{{ contact.photo.url }}"
+                                                    class="mr-3 img-fluid rounded" alt="Avatar Image"/>
+                                    <div class="media-body"><h5
+                                            class="mt-0 mb-2 text-dark">{{ contact.first_name }} {{ contact.last_name }}</h5>
+                                        <ul class="list-unstyled text-smoke">
+                                            <li class="d-flex"><i class="mdi mdi-map mr-1"></i>
+                                                <span>{{ contact.location }}</span></li>
+                                            <li class="d-flex"><i class="mdi mdi-email mr-1"></i> <span><span
+                                                    class="__cf_email__"
+                                                    data-cfemail="b3d6cbded2c3dfd6f3d6ded2dadf9dd0dcde"></span>{{ contact.email }}</span>
+                                            </li>
+                                            <li class="d-flex"><i class="mdi mdi-phone mr-1"></i>
+                                                <span>{{ contact.phone }}</span></li>
+                                        </ul>
+                                    </div>
+                                </a></div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header justify-content-end border-bottom-0">
+                            <button type="button" class="btn-edit-icon" data-dismiss="modal" aria-label="Close"><i
+                                    class="mdi mdi-pencil"></i></button>
+                            <div class="dropdown">
+                                <button class="btn-dots-icon" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                        class="mdi mdi-dots-vertical"></i></button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"><a
+                                        class="dropdown-item" href="javascript:void(0)">Action</a> <a
+                                        class="dropdown-item" href="javascript:void(0)">Another action</a> <a
+                                        class="dropdown-item" href="javascript:void(0)">Something else here</a></div>
+                            </div>
+                            <button type="button" class="btn-close-icon" data-dismiss="modal" aria-label="Close"><i
+                                    class="mdi mdi-close"></i></button>
+                        </div>
+                        <div class="modal-body pt-0">
+                            <div class="row no-gutters">
+                                <div class="col-md-6">
+                                    <div class="profile-content-left px-4">
+                                        <div class="card text-center px-0 border-0">
+                                            <div class="card-img mx-auto"><img class="rounded-circle"
+                                                                               src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                                                                               alt="user image"/></div>
+                                            <div class="card-body"><h4 class="py-2">Albrecht Straub</h4>
+                                                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                      data-cfemail="3d7c515f4f585e5549134e494f5c485f7d5a505c5451135e5250">[email&#160;protected]</a>
+                                                </p> <a class="btn btn-primary btn-pill btn-lg my-4"
+                                                        href="javascript:void(0)">Follow</a></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="text-center pb-4"><h6 class="pb-2">1503</h6>
+                                                <p>Friends</p></div>
+                                            <div class="text-center pb-4"><h6 class="pb-2">2905</h6>
+                                                <p>Followers</p></div>
+                                            <div class="text-center pb-4"><h6 class="pb-2">1200</h6>
+                                                <p>Following</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-info px-4"><h4 class="mb-1">Contact Details</h4>
+                                        <p class="text-dark font-weight-medium pt-4 mb-2">Email address</p>
+                                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                              data-cfemail="20614c4252454348540e53545241554260474d41494c0e434f4d">[email&#160;protected]</a>
+                                        </p>
+                                        <p class="text-dark font-weight-medium pt-4 mb-2">Phone Number</p>
+                                        <p>+99 9539 2641 31</p>
+                                        <p class="text-dark font-weight-medium pt-4 mb-2">Birthday</p>
+                                        <p>Nov 15, 1990</p>
+                                        <p class="text-dark font-weight-medium pt-4 mb-2">Event</p>
+                                        <p>Lorem, ipsum dolor</p></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-
-                {% endfor %}
-
+                </div>
             </div>
-        </div>
-    </section>
-    <section id="bod" class="bod_area">
-        <div class="container"><h2 class="title_spectial">Board of directors</h2>
-            <div class="row text-center">
-                {% for dr in director %}
-                    <div class="col-lg-3 col-sm-3 col-xs-12 wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.4s"
-                         data-wow-offset="0"
-                         style="visibility: visible; animation-duration: 1s; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                        <div class="our-bod">
-                            <div class="single-bod"><img src={{ dr.photo.url }}
-                                                                 class="img-fluid" alt>
-                                <h3>{{ dr.first_name }} {{ dr.last_name }}</h3>
-                                <p>{{ dr.proffession }}</p></div>
-                            <ul class="social">
-                                <li><a href="#" class="fa fa-facebook facebook"></a></li>
-                                <li><a href="#" class="fa fa-twitter twitter"></a></li>
-                                <li><a href="#" class="fa fa-google google"></a></li>
-                            </ul>
-                        </div>
+            <div class="modal fade" id="modal-add-contact" tabindex="-1" role="dialog"
+                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <form>
+                            <div class="modal-header px-4"><h5 class="modal-title" id="exampleModalCenterTitle">Create
+                                New Contact</h5></div>
+                            <div class="modal-body px-4">
+                                <div class="form-group row mb-6"><label for="coverImage"
+                                                                        class="col-sm-4 col-lg-2 col-form-label">User
+                                    Image</label>
+                                    <div class="col-sm-8 col-lg-10">
+                                        <div class="custom-file mb-1"><input type="file" class="custom-file-input"
+                                                                             id="coverImage" required/> <label
+                                                class="custom-file-label" for="coverImage">Choose file...</label>
+                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-lg-6">
+                                        <div class="form-group"><label for="firstName">First name</label> <input
+                                                type="text" class="form-control" id="firstName" value="Albrecht"/></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group"><label for="lastName">Last name</label> <input
+                                                type="text" class="form-control" id="lastName" value="Straub"/></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4"><label for="userName">User name</label> <input
+                                                type="text" class="form-control" id="userName" value="Doe"/></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4"><label for="email">Email</label> <input
+                                                type="email" class="form-control" id="email"
+                                                value="albrecht.straub@gmail.com"/></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4"><label for="Birthday">Birthday</label> <input
+                                                type="text" class="form-control" id="Birthday" value="01-10-1993"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-4"><label for="event">Event</label> <input type="text"
+                                                                                                             class="form-control"
+                                                                                                             id="event"
+                                                                                                             value="Some value for event"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer px-4">
+                                <button type="button" class="btn btn-smoke btn-pill" data-dismiss="modal">Cancel
+                                </button>
+                                <button type="button" class="btn btn-primary btn-pill">Save Contact</button>
+                            </div>
+                        </form>
                     </div>
-
-                {% endfor %}
-
+                </div>
             </div>
         </div>
-    </section>
+    </div>
     <style type="text/css">body {
+        color: #8a909d;
+        background: #eee;
         margin-top: 20px;
-        background: rgb(238, 238, 238, 0.6);
-        color: #9aa9c1;
+    }
+
+    @media (min-width: 992px) {
+        .card-default {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #ffffff;
+        background-clip: border-box;
+        border: 1px solid #e5e9f2;
+        border-radius: 0.25rem;
+    }
+
+    .card-default .card-header {
+        padding-top: 1.875rem;
+        padding-bottom: 1rem;
+        display: flex;
+        justify-content: space-between;
+        background-color: transparent;
+        border-bottom: none;
+        flex-wrap: wrap;
+        text-transform: capitalize;
+    }
+
+    .p-4 {
+        padding: 1.25rem !important;
     }
 
     a {
         text-decoration: none;
     }
 
-    .team_area {
-        background: #fbfafa;
-    }
-
-    .team_title {
-        color: #000;
-        margin-bottom: 60px;
-        text-align: center;
-        text-transform: capitalize;
-        font-weight: 600;
-    }
-
-    .our-team {
-    }
-
-    @media only screen and (max-width: 768px) {
-        .our-team {
-            margin-bottom: 30px
-        }
-    }
-
-    .single-team {
-        margin-bottom: 10px;
-    }
-
-    .single-team img {
-        margin-bottom: 15px;
-        border-radius: 2px;
-        border: 10px solid #fff;
-    }
-
-    .single-team h3 {
-        margin-bottom: 0px;
-        font-size: 18px;
-        font-weight: 600;
-    }
-
-    .single-team p {
-        margin-bottom: 0px;
-    }
-
-    .our-team .social {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-        -webkit-transition: all 0.3s ease 0s;
-        transition: all 0.3s ease 0s;
-    }
-
-    .our-team .social li {
-        display: inline-block;
-    }
-
-    .our-team .social li a {
-        display: block;
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
-        font-size: 15px;
-        color: #fff;
-        position: relative;
-        -webkit-transition: all 0.3s ease-in-out 0s;
-        transition: all 0.3s ease-in-out 0s;
-        border-radius: 30px;
-        margin: 3px;
-    }
-
-    .our-team:hover .social li:nth-child(1) a {
-        -webkit-transition-delay: 0.3s;
-        transition-delay: 0.3s;
-    }
-
-    .our-team:hover .social li:nth-child(2) a {
-        -webkit-transition-delay: 0.2s;
-        transition-delay: 0.2s
-    }
-
-    .our-team:hover .social li:nth-child(3) a {
-        -webkit-transition-delay: 0.1s;
-        transition-delay: 0.1s;
-    }
-
-    .our-team:hover .social li:nth-child(4) a {
-        -webkit-transition-delay: 0s;
-        transition-delay: 0s;
-    }
-
-    .our-team .social li a:hover {
-        -webkit-transition-delay: 0s;
-        transition-delay: 0s;
-    }
-
-    .facebook {
-        background: #1C58A1;
-    }
-
-    .facebook:hover {
-        background: #fff;
-        color: #1C58A1 !important;
-    }
-
-    .twitter {
-        background: #0CBCE3;
-    }
-
-    .twitter:hover {
-        background: #fff;
-        color: #0CBCE3 !important;
-    }
-
-    .google {
-        background: #F04537;
-    }
-
-    .google:hover {
-        background: #fff;
-        color: #F04537 !important;
-    }
-
-    /*START BOARD DIRECTOR*/
-    .bod_area {
-        padding-bottom: 80px;
-        background: #fbfafa;
-    }
-
-    .our-bod {
-    }
-
-    @media only screen and (max-width: 768px) {
-        .our-bod {
-            margin-bottom: 30px
-        }
-    }
-
-    .single-bod {
-        margin-bottom: 10px;
-    }
-
-    .single-bod img {
-        margin-bottom: 15px;
-        width: 180px;
-        border-radius: 2px;
-        height: 180px;
-        border: 10px solid #fff;
-    }
-
-    .single-bod h3 {
-        margin-bottom: 0px;
-        font-size: 18px;
-        font-weight: 600;
-    }
-
-    .single-bod p {
-        margin-bottom: 0px;
-    }
-
-    .our-bod .social {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-        -webkit-transition: all 0.3s ease 0s;
-        transition: all 0.3s ease 0s;
-    }
-
-    .our-bod .social li {
-        display: inline-block;
-    }
-
-    .our-bod .social li a {
-        display: block;
-        width: 35px;
-        height: 35px;
-        line-height: 35px;
-        font-size: 15px;
-        color: #fff;
-        position: relative;
-        -webkit-transition: all 0.3s ease-in-out 0s;
-        transition: all 0.3s ease-in-out 0s;
-        border-radius: 30px;
-        margin: 3px;
-    }
-
-    .our-bod:hover .social li:nth-child(1) a {
-        -webkit-transition-delay: 0.3s;
-        transition-delay: 0.3s;
-    }
-
-    .our-bod:hover .social li:nth-child(2) a {
-        -webkit-transition-delay: 0.2s;
-        transition-delay: 0.2s
-    }
-
-    .our-bod:hover .social li:nth-child(3) a {
-        -webkit-transition-delay: 0.1s;
-        transition-delay: 0.1s;
-    }
-
-    .our-bod:hover .social li:nth-child(4) a {
-        -webkit-transition-delay: 0s;
-        transition-delay: 0s;
-    }
-
-    .our-bod .social li a:hover {
-        -webkit-transition-delay: 0s;
-        transition-delay: 0s;
-    }
-
-    .title_spectial {
-        text-align: center;
-        font-weight: 600;
-        position: relative;
-        margin-bottom: 60px;
-        text-transform: uppercase;
-        font-size: 24px;
-    }
-
-    .bod_area {
-        padding-bottom: 80px;
-    }
-
-    .section-padding {
-        padding: 80px 0;
-        padding-top: 100px;
+    .contact-list img {
+        width: 100px;
+        height: 100px;
     }</style>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script type="text/javascript"></script>
 </div>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F1RTS0P1CD"></script>

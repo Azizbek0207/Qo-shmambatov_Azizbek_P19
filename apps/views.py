@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from apps.models import  CreativeTeam, Director
+from apps.models import  ContactsPage
 
 
 #
@@ -23,10 +23,8 @@ from apps.models import  CreativeTeam, Director
 
 
 def index_view(request):
-    person = CreativeTeam.objects.all()
-    director = Director.objects.all()
+    contacts = ContactsPage.objects.all()
     context = {
-        'director': director,
-        'person': person
+        'contacts': contacts
     }
     return render(request, 'apps/index.html', context)

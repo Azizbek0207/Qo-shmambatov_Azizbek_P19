@@ -1,14 +1,10 @@
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin
 
-from apps.models import CreativeTeam, Director
+from apps.models import ContactsPage
 
 
 # Register your models here.
-@admin.register(CreativeTeam)
-class PersonAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(Director)
-class PersonAdmin(admin.ModelAdmin):
+@admin.register(ContactsPage)
+class PersonAdmin(ImportExportModelAdmin):
     pass
