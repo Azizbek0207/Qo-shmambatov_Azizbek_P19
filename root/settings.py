@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'root.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'exam_db',
-        'PASSWORD': '2007',
+        'NAME': 'a',
+        'PASSWORD': '1',
         'HOST': 'localhost',
         'PORT': 5432,
         'USER': 'postgres'
@@ -122,6 +122,12 @@ STATIC_URL = 'static/'
 # https://docs.root.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_URL = '/rasm/'
+MEDIA_URL = 'rasm/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'rasm')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = 'gcjlsriowtgbhrhk'
+EMAIL_HOST_USER = 'sjushebaxizu@gmail.com'

@@ -1,10 +1,25 @@
 from django.contrib import admin
-from import_export.admin import ImportExportModelAdmin
 
-from apps.models import ContactsPage
+from apps.models import Blog, Category, User
 
 
-# Register your models here.
-@admin.register(ContactsPage)
-class PersonAdmin(ImportExportModelAdmin):
+# Register your models he
+#
+#
+#
+#
+# re.
+
+@admin.register(Blog)
+class UserAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Category)
+class UserAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
     pass
