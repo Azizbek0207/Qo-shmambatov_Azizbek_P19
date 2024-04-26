@@ -1,76 +1,85 @@
-from django.http import HttpResponse
+from django.contrib.auth import logout
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.contrib.auth.views import LoginView
+from django.contrib.postgres.aggregates import ArrayAgg
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.views import View
+from django.views.generic import ListView, DetailView, CreateView, TemplateView
 
-from django.core.mail import send_mail
-
-from apps.models import Blog, Category, User
-from root.settings import EMAIL_HOST_USER
-
-
-#
-#
-# # Create your views here.
-def index_view(request):
-    if request.method == 'POST':
-        first_name = request.POST.get('fname')
-        last_name = request.POST.get('lname')
-        User.objects.create(first_name=first_name, last_name=last_name)
-    return render(request, 'apps/index.html')
-
-#
-# def detail_view(request, pk):
-#     users = User.objects.get(pk=pk)
-#     context = {
-#         'users': users
-#     }
-#     return render(request, 'apps/form.html', context)
+from apps.form import RegisterModelForm
+from apps.models import Contact, Position, Member, PositionTag, Blog, Category
 
 
-def form_view(request):
-    blog = Blog.objects.all()
-    category = Category.objects.all()
-    context = {
-        "blog": blog,
-        "category": category
-    }
-    return render(request, 'apps/list.html', context)
+class ProductListView(ListView):
+    model = Contact
+    template_name = 'apps/list.html'
+    context_object_name = 'contacts'
+    paginate_by = 1
 
 
-def form_view_detal(request, pk):
-    blog = Blog.objects.get(pk=pk)
-    context = {
-        "blog1": blog
-    }
-    return render(request, 'apps/detail.html', context)
+class MemberList(ListView):
+    queryset = Member.objects.all()
+    template_name = 'apps/member.html'
+    context_object_name = 'members'
+    paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(object_list=object_list, **kwargs)
+        context['tags'] = PositionTag.objects.all()
+        return context
+
+    def get_queryset(self):
+        res = self.request.GET.get('choices-single-categories')
+        search = self.request.GET.get('search')
+        queryset = super().get_queryset()
+
+        if res:
+            queryset = queryset.filter(job__id=res)
+        if search:
+            queryset = queryset.filter(first_name__icontains=search)
+        return queryset
 
 
-# def form_view_detail_update(request, pk):
-#     blog = Blog.objects.get(pk=pk)
-#     if request.method == 'POST':
-#         name = request.POST.get('name')
-#         description = request.POST.get('description')
-#         image = request.POST.get('image')
-#
-#         blog.name = name
-#         blog.description = description
-#         blog.image = image
-#         Blog.save(blog)
-#         return redirect('index_menu_view')
-#
-#     context = {
-#         'blog1': blog
-#     }
-#     return render(request, 'apps/index.html', context)
+class ProfileViewPage(LoginRequiredMixin, LoginView):
+    template_name = 'apps/auth/profile.html'
+    login_url = 'login_page'
 
 
-# def form_detail_delete(request, pk):
-#     if request.method == 'POST':
-#         blog = Blog.objects.get(pk=pk)
-#         blog.delete()
-#         return render(request, 'apps/index.html')
-#     else:
-#         return render(request, 'apps/form.html')
+class RegisterViewPage(CreateView):
+    form_class = RegisterModelForm
+    template_name = 'apps/auth/register.html'
+    success_url = 'login'
 
 
-def suc_view(req):
-    return render(req, 'apps/success.html')
+def logout_view(request):
+    logout(request)
+    return redirect('login_page')
+
+
+class ViewPage(TemplateView, LoginRequiredMixin):
+    template_name = 'apps/blog-list.html'
+    login_url = 'login_page'
+
+
+class RegisterPage(CreateView):
+    form_class = RegisterModelForm
+    template_name = 'apps/login-register.html'
+    success_url = 'login'
+
+
+class MainPage(ListView):
+    queryset = Blog.objects.all()
+    template_name = 'apps/index.html'
+    context_object_name = 'blogs'
+    paginate_by = 1
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        queryset = super().get_context_data(object_list=object_list, **kwargs)
+        queryset['categories'] = Category.objects.all()
+        return queryset
+
+
+class DetailPage(TemplateView):
+    template_name = 'apps/detail.html'

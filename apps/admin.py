@@ -1,25 +1,37 @@
 from django.contrib import admin
 
-from apps.models import Blog, Category, User
+from apps.models import Contact, Position, Member, Job, PositionTag, Blog, User, Category
 
 
 # Register your models he
 #
-#
-#
-#
-# re.
 
-@admin.register(Blog)
+
+@admin.register(PositionTag)
 class UserAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Category)
-class UserAdmin(admin.ModelAdmin):
+@admin.register(Member)
+class ProductAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Job)
+class ProductAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class BlogAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Category)
+class BlogAdmin(admin.ModelAdmin):
     pass

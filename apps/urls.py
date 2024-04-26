@@ -1,11 +1,19 @@
+from django.contrib.auth.views import LoginView
 from django.urls import path
 
-from apps.views import form_view, form_view_detal, index_view, suc_view
+from apps.views import ProductListView, MemberList, ProfileViewPage, RegisterViewPage, logout_view, \
+    ViewPage, RegisterPage, MainPage, DetailPage
 
 urlpatterns = [
-    path('detail/<int:pk>', form_view_detal, name='form_view_detail'),
-    path('', form_view, name='form_view_list'),
-    path('suc/', suc_view, name='success_page'),
-    # path('form', form_view, name='form_view'),
-    # path('form/<int:pk>', form_view, name='profile_detail_view'),
+    path('login/', LoginView.as_view(
+        template_name='apps/login-register.html',
+        next_page='home_page',
+        redirect_authenticated_user=True,
+    ), name='login_page'),
+    # path('profile/', ProfileViewPage.as_view(), name='profile_page'),
+    # path('register', RegisterViewPage.as_view(), name='register'),
+    # path('logout', logout_view, name='logout'),
+    path('', MainPage.as_view(), name='home_page'),
+    path('register', RegisterPage.as_view(), name='register_page'),
+    path('detail/', DetailPage.as_view(), name='detail_page')
 ]
