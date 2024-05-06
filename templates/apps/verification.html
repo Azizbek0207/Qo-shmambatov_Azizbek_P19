@@ -2,15 +2,15 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 
-<!-- blog-list-left-sidebar31:55-->
+<!-- login-register31:27-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Blog List Left Sidebar || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
+    <title>Login Register || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'apps/images/favicon.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
     <!-- Material Design Iconic Font-V2.2.0 -->
     <link rel="stylesheet" href="{% static 'apps/css/material-design-iconic-font.min.css' %}">
     <!-- Font Awesome -->
@@ -38,7 +38,7 @@
     <!-- Helper CSS -->
     <link rel="stylesheet" href="{% static 'apps/css/helper.css' %}">
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="{% static 'apps/css/style.css' %}">
+    <link rel="stylesheet" href="{% static "apps/style.css" %}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{% static 'apps/css/responsive.css' %}">
     <!-- Modernizr js -->
@@ -53,6 +53,7 @@
 <div class="body-wrapper">
     <!-- Begin Header Area -->
     {% include "apps/auth/header.html" %}
+    }
     <!-- Header Area End Here -->
     <!-- Begin Li's Breadcrumb Area -->
     <div class="breadcrumb-area">
@@ -60,182 +61,87 @@
             <div class="breadcrumb-content">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li class="active">Blog List Left Sidebar</li>
+                    <li class="active">Login Register</li>
                 </ul>
             </div>
         </div>
     </div>
     <!-- Li's Breadcrumb Area End Here -->
-    <!-- Begin Li's Main Blog Page Area -->
-    <div class="li-main-blog-page pt-60 pb-55">
+    <!-- Begin Login Content Area -->
+    <div class="page-section mb-60">
         <div class="container">
             <div class="row">
-                <!-- Begin Li's Blog Sidebar Area -->
-                <div class="col-lg-3 order-lg-1 order-2">
-                    <div class="li-blog-sidebar-wrapper">
-                        <div class="li-blog-sidebar">
-                            <div class="li-sidebar-search-form pt-xs-30 pt-sm-30">
-                                <form action="#">
-                                    <input type="text" class="li-search-field" placeholder="search here">
-                                    <button type="submit" class="li-search-btn"><i class="fa fa-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="li-blog-sidebar pt-25">
-                            <h4 class="li-blog-sidebar-title">Categories</h4>
-                            <ul class="li-blog-archive">
-                                {% for category in categories %}
-                                    <li><a href="#">{{ category.name }} ({{ category.blog_set.count }})</a></li>
-
-                                {% endfor %}
-
-
-                            </ul>
-                        </div>
-                        <div class="li-blog-sidebar">
-                            <h4 class="li-blog-sidebar-title">Blog Archives</h4>
-                            <ul class="li-blog-archive">
-                                <li><a href="#">January (10)</a></li>
-                                <li><a href="#">February (08)</a></li>
-                                <li><a href="#">March (07)</a></li>
-                                <li><a href="#">April (14)</a></li>
-                                <li><a href="#">May (10)</a></li>
-                                <li><a href="#">June (06)</a></li>
-                            </ul>
-                        </div>
-                        <div class="li-blog-sidebar">
-                            <h4 class="li-blog-sidebar-title">Recent Post</h4>
-                            <div class="li-recent-post pb-30">
-                                <div class="li-recent-post-thumb">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img class="img-full" src="{% static 'apps/images/product/small-size/3.jpg' %}"
-                                             alt="Li's Product Image">
-                                    </a>
+                <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6 mb-30">
+                    <!-- Login Form s-->
+                    <form action="{% url 'login_page' %}" method="post">
+                        {% csrf_token %}
+                        <div class="login-form">
+                            <h4 class="login-title">Login</h4>
+                            <div class="row">
+                                <div class="col-md-12 col-12 mb-20">
+                                    <label>Write an email to send verification code</label>
+                                    <input class="mb-0" type="text" placeholder="email" name="email">
+                                    <button type="submit">Send Verification Code</button>
                                 </div>
-                                <div class="li-recent-post-des">
-                                    <span><a href="blog-details-left-sidebar.html">First Blog Post</a></span>
-                                    <span class="li-post-date">25.11.2018</span>
+                                <div class="col-12 mb-20">
+                                    <label>Write verification code</label>
+                                    <input class="mb-0" type="password" placeholder="Verification code"
+                                           name="verif_code">
                                 </div>
-                            </div>
-                            <div class="li-recent-post pb-30">
-                                <div class="li-recent-post-thumb">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img class="img-full" src="{% static 'apps/images/product/small-size/2.jpg' %}"
-                                             alt="Li's Product Image">
-                                    </a>
-                                </div>
-                                <div class="li-recent-post-des">
-                                    <span><a href="blog-details-left-sidebar.html">First Blog Post</a></span>
-                                    <span class="li-post-date">25.11.2018</span>
-                                </div>
-                            </div>
-                            <div class="li-recent-post pb-30">
-                                <div class="li-recent-post-thumb">
-                                    <a href="blog-details-left-sidebar.html">
-                                        <img class="img-full" src="{% static 'apps/images/product/small-size/5.jpg' %}"
-                                             alt="Li's Product Image">
-                                    </a>
-                                </div>
-                                <div class="li-recent-post-des">
-                                    <span><a href="blog-details-left-sidebar.html">First Blog Post</a></span>
-                                    <span class="li-post-date">25.11.2018</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="li-blog-sidebar">
-                            <h4 class="li-blog-sidebar-title">Tags</h4>
-                            <ul class="li-blog-tags">
-                                <li><a href="#">Gaming</a></li>
-                                <li><a href="#">Chromebook</a></li>
-                                <li><a href="#">Refurbished</a></li>
-                                <li><a href="#">Touchscreen</a></li>
-                                <li><a href="#">Ultrabooks</a></li>
-                                <li><a href="#">Sound Cards</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Li's Blog Sidebar Area End Here -->
-                <!-- Begin Li's Main Content Area -->
-                <div class="col-lg-9 order-lg-2 order-1">
-                    <div class="row li-main-content">
-                        <!-- Begin Li's Pagination Area -->
-                        {% for blog in blogs %}
-                            <div class="col-lg-12">
-                                <div class="li-blog-single-item pb-30">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="li-blog-banner">
-                                                <a href="{% url 'detail_page' %}"><img
-                                                        style="width: 420px; height: 236px " class="img-full"
-                                                        src="{{ blog.image.url }}"
-                                                        alt=""></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="li-blog-content">
-                                                <div class="li-blog-details">
-                                                    <h3 class="li-blog-heading pt-xs-25 pt-sm-25"><a
-                                                            href="{% url 'detail_page' %}">{{ blog.title }}</a></h3>
-                                                    <div class="li-blog-meta">
-                                                        <a class="author" href="{% url 'detail_page' %}"><i
-                                                                class="fa fa-user"></i>{{ blog.author }}</a>
-                                                        <a class="comment" href="{% url 'detail_page' %}"><i
-                                                                class="fa fa-comment-o"></i> 3
-                                                            comment</a>
-                                                        <a class="post-time" href="{% url 'detail_page' %}"><i
-                                                                class="fa fa-calendar"></i> {{ blog.posted_at }}</a>
-                                                    </div>
-                                                    <p>{{ blog.description }}</p>
-                                                    <a class="read-more" href="{% url 'detail_page' %}">Read
-                                                        More...</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="col-md-8">
+                                    <div class="check-box d-inline-block ml-0 ml-md-2 mt-10">
+                                        <input type="checkbox" id="remember_me">
+                                        <label for="remember_me">Remember me</label>
                                     </div>
                                 </div>
-                            </div>
-
-                        {% endfor %}
-
-                        <!-- Begin Li's Pagination Area -->
-                        <div class="col-lg-12">
-                            <div class="li-paginatoin-area text-center pt-25">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <ul class="li-pagination-box">
-                                            {% if page_obj.has_previous %}
-                                                <li><a class="Previous"
-                                                       href="?page={{ page_obj.previous_page_number }}">Previous</a>
-                                                </li>
-                                            {% endif %}
-                                            {% for page in page_obj.paginator.page_range %}
-                                                {% if page_obj.number == page %}
-                                                    <li><a href="?page={{ page }}"> {{ page }}</a></li>
-                                                {% elif page_obj.number|add:"-1" and page_obj.number|add:"1" %}
-                                                    <li><a href="?page={{ page }}">{{ page }}</a></li>
-
-                                                {% endif %}
-
-                                            {% endfor %}
-
-                                            {% if page_obj.has_next %}
-                                                <li><a class="Next"
-                                                       href="?page={{ page_obj.next_page_number }}">Next</a></li>
-                                            {% endif %}
-                                        </ul>
-                                    </div>
+                                <div class="col-md-4 mt-10 mb-20 text-left text-md-right">
+                                    <a href="#"> Forgotten password?</a>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="register-button mt-0" type="submit">Login
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Li's Pagination End Here Area -->
-                    </div>
+                    </form>
                 </div>
-                <!-- Li's Main Content Area End Here -->
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                    <form action="{% url 'register_page' %}" method="post">
+                        {% csrf_token %}
+                        <div class="login-form">
+                            <h4 class="login-title">Register</h4>
+                            <div class="row">
+                                <div class="col-md-6 col-12 mb-20">
+                                    <label>First Name</label>
+                                    <input class="mb-0" type="text" placeholder="First Name" name="first_name">
+                                </div>
+                                <div class="col-md-6 col-12 mb-20">
+                                    <label>User Name</label>
+                                    <input class="mb-0" type="text" placeholder="User Name" name="username">
+                                </div>
+                                <div class="col-md-12 mb-20">
+                                    <label>Email Address*</label>
+                                    <input class="mb-0" type="email" placeholder="Email Address" name="email">
+                                </div>
+                                <div class="col-md-6 mb-20">
+                                    <label>Password</label>
+                                    <input class="mb-0" type="password" placeholder="Password" name="password">
+                                </div>
+                                <div class="col-md-6 mb-20">
+                                    <label>Confirm Password</label>
+                                    <input class="mb-0" type="password" placeholder="Confirm Password" name="password">
+                                </div>
+                                <div class="col-12">
+                                    <button class="register-button mt-0" type="submit">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Li's Main Blog Page Area End Here -->
+    <!-- Login Content Area End Here -->
     <!-- Begin Footer Area -->
     <div class="footer">
         <!-- Begin Footer Static Top Area -->
@@ -248,7 +154,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="{% static 'apps/images/shipping-icon' %}/1.png" alt="Shipping Icon">
+                                    <img src="{% static 'apps/images/shipping-icon/1.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Free Delivery</h2>
@@ -261,7 +167,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="{% static 'apps/images/shipping-icon' %}/2.png" alt="Shipping Icon">
+                                    <img src="{% static 'apps/images/shipping-icon/2.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Safe Payment</h2>
@@ -274,7 +180,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="{% static 'apps/images/shipping-icon' %}/3.png" alt="Shipping Icon">
+                                    <img src="{% static 'apps/images/shipping-icon/3.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>Shop with Confidence</h2>
@@ -287,7 +193,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
                             <div class="li-shipping-inner-box">
                                 <div class="shipping-icon">
-                                    <img src="{% static 'apps/images/shipping-icon' %}/4.png" alt="Shipping Icon">
+                                    <img src="{% static 'apps/images/shipping-icon/4.png' %}" alt="Shipping Icon">
                                 </div>
                                 <div class="shipping-text">
                                     <h2>24/7 Help Center</h2>
@@ -518,5 +424,5 @@
 <script src="{% static 'apps/js/main.js' %}"></script>
 </body>
 
-<!-- blog-list-left-sidebar31:56-->
+<!-- login-register31:27-->
 </html>

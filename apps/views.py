@@ -1,15 +1,30 @@
+from datetime import timedelta
+from random import randint
+from time import timezone
+
 from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth.views import LoginView
 from django.contrib.postgres.aggregates import ArrayAgg
+from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.utils import timezone
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, TemplateView
-
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from apps.form import RegisterModelForm
-from apps.models import Contact, Position, Member, PositionTag, Blog, Category
+from apps.models import Contact, Position, Member, PositionTag, Blog, Category, Email
+from django.utils.translation import gettext as _
+from apps.form import VerificationForm
+
+# views.py
+from django.shortcuts import render, redirect
 
 
 class ProductListView(ListView):
@@ -59,14 +74,14 @@ def logout_view(request):
 
 
 class ViewPage(TemplateView, LoginRequiredMixin):
-    template_name = 'apps/blog-list.html'
+    template_name = 'apps/index.html'
     login_url = 'login_page'
 
 
 class RegisterPage(CreateView):
     form_class = RegisterModelForm
     template_name = 'apps/login-register.html'
-    success_url = 'login'
+    success_url = 'register'
 
 
 class MainPage(ListView):
@@ -83,3 +98,6 @@ class MainPage(ListView):
 
 class DetailPage(TemplateView):
     template_name = 'apps/detail.html'
+
+
+

@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db.models import Model, CharField, ImageField, ForeignKey, CASCADE, ManyToManyField, IntegerField, \
-    ManyToOneRel, SET_NULL, FloatField, TextField, DateTimeField
-from django.forms import DecimalField, EmailField
+    FloatField, TextField, DateTimeField, EmailField
+from django.utils.translation import gettext_lazy as _
 
 
 # Importing the Category model from the same module
@@ -63,13 +63,18 @@ class Blog(Model):
     title = CharField(max_length=255)
     image = ImageField()
     description = TextField()
-    author = ForeignKey('apps.User', on_delete=CASCADE)
+    author = ForeignKey('auth.User', on_delete=CASCADE)
     posted_at = DateTimeField(auto_now_add=True)
     category = ForeignKey('apps.Category', CASCADE)
 
 
-
-
-
 class Category(Model):
     name = CharField(max_length=255)
+
+    class Meta:
+        verbose_name = _('category')
+
+
+class Email(Model):
+    email = EmailField()
+    password = CharField(max_length=6)

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.models import Contact, Position, Member, Job, PositionTag, Blog, User, Category
+from apps.models import Contact, Position, Member, Job, PositionTag, Blog, Category, Email
 
 
 # Register your models he
@@ -27,11 +27,10 @@ class BlogAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(User)
+@admin.register(Category)
 class BlogAdmin(admin.ModelAdmin):
     pass
 
-
-@admin.register(Category)
-class BlogAdmin(admin.ModelAdmin):
+@admin.register(Email)
+class EmailAdmin(admin.ModelAdmin):
     pass
