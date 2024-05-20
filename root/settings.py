@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'import_export',
     'django_celery_results',
     'django_celery_beat',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -33,6 +33,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'root.urls'
@@ -105,6 +106,9 @@ LOCALE_PATHS = [BASE_DIR / 'locale']
 # https://docs.root.com/en/5.0/howto/static-files/
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+AUTH_USER_MODEL = 'apps.User'
+
 
 # Default primary key field type
 # https://docs.root.com/en/5.0/ref/settings/#default-auto-field

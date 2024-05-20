@@ -4,7 +4,7 @@ from django.urls import path
 
 from apps import views
 # from apps.tasks import send_message
-from apps.views import MemberList, RegisterViewPage, ProfileViewPage
+from apps.views import MemberList, RegisterViewPage, UserUpdateView
 
 
 def send_email(request):
@@ -21,6 +21,6 @@ urlpatterns = [
         redirect_authenticated_user=True,
     ), name='login_page'),
     path('register/', RegisterViewPage.as_view(), name='register'),
-    path('profile/', ProfileViewPage.as_view(), name='profile'),
+    path('profile/<int:pk>', UserUpdateView.as_view(), name='profile'),
     path('logout/', views.logout_view, name='logout'),
 ]

@@ -9,7 +9,6 @@ click-plugins==1.1.1
 click-repl==0.3.0
 cron-descriptor==1.4.3
 diff-match-patch==20230430
-Django==5.0.3
 django-celery-beat==2.6.0
 django-celery-results==2.5.1
 django-ckeditor-5==0.2.12

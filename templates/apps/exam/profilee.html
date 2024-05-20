@@ -51,7 +51,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center"><img
-                                    src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                    src="{{ user.photo.url }}" alt="Admin"
                                     class="rounded-circle" width="150">
 
                                 <div class="mt-3"><h4>John Doe</h4>
@@ -142,20 +142,20 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3"><h6 class="mb-0">Username</h6></div>
-                                <div class="col-sm-9 text-secondary"> {{ user.username }}</div>
+                                
+                                <div class="col-sm-9 text-secondary" value="{{ user.username }}" {{ form.as_p }}>  {{ user.username }}</div>
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-sm-3"><h6 class="mb-0">First Name</h6></div>
+                                <div class="col-sm-3"><h6 class="mb-0" value="{{ user.first_name }}">First Name</h6></div>
                                 <div class="col-sm-9 text-secondary"><a
-                                        href="/cdn-cgi/l/email-protection"
                                         class="__cf_email__"
                                         data-cfemail="5b3d322b1b312e30362e33753a37">{{ user.first_name }}</a>
                                 </div>
                             </div>
                             <hr>
                             <div class="row">
-                                <div class="col-sm-3"><h6 class="mb-0">Last Name</h6></div>
+                                <div class="col-sm-3"><h6 class="mb-0" value="{{ user.last_name }}">Last Name</h6></div>
                                 <div class="col-sm-9 text-secondary"> {{ user.last_name }}</div>
                             </div>
                             <hr>
