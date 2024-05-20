@@ -15,7 +15,7 @@ def send_email(request):
 
 urlpatterns = [
     path('login/', LoginView.as_view(
-        template_name='apps/login-register.html',
+        template_name='apps/auth/login-register.html',
         next_page='verification',
         redirect_authenticated_user=True,
     ), name='login_page'),

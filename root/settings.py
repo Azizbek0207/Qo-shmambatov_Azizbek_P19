@@ -61,12 +61,9 @@ WSGI_APPLICATION = 'root.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'rest',
-        'PASSWORD': '1',
-        'HOST': 'localhost',
-        'PORT': 5432,
-        'USER': 'postgres'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+
     }
 }
 
@@ -108,6 +105,7 @@ LOCALE_PATHS = [BASE_DIR / 'locale']
 # https://docs.root.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.root.com/en/5.0/ref/settings/#default-auto-field
@@ -123,8 +121,9 @@ EMAIL_PORT = 587
 EMAIL_HOST_PASSWORD = 'gcjlsriowtgbhrhk'
 EMAIL_HOST_USER = 'sjushebaxizu@gmail.com'
 
-# CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+# CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+
 CELERY_RESULT_BACKEND = 'django-db'
 
 JAZZMIN_SETTINGS = {

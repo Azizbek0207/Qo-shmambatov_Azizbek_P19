@@ -29,14 +29,14 @@ from django.shortcuts import render, redirect
 
 class ProductListView(ListView):
     model = Contact
-    template_name = 'apps/list.html'
+    template_name = 'apps/auth/list.html'
     context_object_name = 'contacts'
     paginate_by = 1
 
 
 class MemberList(ListView):
     queryset = Member.objects.all()
-    template_name = 'apps/member.html'
+    template_name = 'apps/auth/member.html'
     context_object_name = 'members'
     paginate_by = 5
 
@@ -74,19 +74,19 @@ def logout_view(request):
 
 
 class ViewPage(TemplateView, LoginRequiredMixin):
-    template_name = 'apps/index.html'
+    template_name = 'apps/auth/index.html'
     login_url = 'login_page'
 
 
 class RegisterPage(CreateView):
     form_class = RegisterModelForm
-    template_name = 'apps/login-register.html'
+    template_name = 'apps/auth/login-register.html'
     success_url = 'register'
 
 
 class MainPage(ListView):
     queryset = Blog.objects.all()
-    template_name = 'apps/index.html'
+    template_name = 'apps/auth/index.html'
     context_object_name = 'blogs'
     paginate_by = 1
 
@@ -97,7 +97,7 @@ class MainPage(ListView):
 
 
 class DetailPage(TemplateView):
-    template_name = 'apps/detail.html'
+    template_name = 'apps/auth/detail.html'
 
 
 
