@@ -2,29 +2,25 @@ from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
 from django.urls import path
 
-from apps.tasks import send_message
-from apps.views import logout_view, \
-    RegisterPage, MainPage, DetailPage
+from apps import views
+# from apps.tasks import send_message
+from apps.views import MemberList, RegisterViewPage, ProfileViewPage
 
 
 def send_email(request):
     msg = request.GET.get('msg')
-    send_message.delay(msg)
+    # send_message.delay(msg)
     return HttpResponse('Hello world')
 
 
 urlpatterns = [
+    path('', MemberList.as_view(), name='memberlist'),
     path('login/', LoginView.as_view(
-        template_name='apps/auth/login-register.html',
-        next_page='verification',
+        template_name='apps/exam/login.html',
+        next_page='profile',
         redirect_authenticated_user=True,
     ), name='login_page'),
-    # path('profile/', ProfileViewPage.as_view(), name='profile_page'),
-    # path('register', RegisterViewPage.as_view(), name='register'),3
-    path('logout', logout_view, name='logout'),
-    path('', MainPage.as_view(), name='home_page'),
-    path('register', RegisterPage.as_view(), name='register_page'),
-    path('detail/', DetailPage.as_view(), name='detail_page'),
-    path('send/', send_email),
-
+    path('register/', RegisterViewPage.as_view(), name='register'),
+    path('profile/', ProfileViewPage.as_view(), name='profile'),
+    path('logout/', views.logout_view, name='logout'),
 ]

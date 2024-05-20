@@ -3,13 +3,11 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django import forms
 
-from apps.models import UploadImage
-
 
 class RegisterModelForm(ModelForm):
     class Meta:
         model = User
-        fields = ['email', 'password', 'first_name', 'username']
+        fields = ['email', 'password', 'first_name', 'username', 'last_name']
 
     def clean_password(self):
         return make_password(self.cleaned_data.get('password'))
